@@ -8,10 +8,15 @@ namespace Laboratorio_2
 {
     public class Cancion
     {
-        public string Name;
-        public string Album;
-        public string Artist;
-        public string Genre;
+        private string name;
+        private string album;
+        private string artist;
+        private string genre;
+
+        public string Name { get => name; set => name = value; }
+        public string Album { get => album; set => album = value; }
+        public string Artist { get => artist; set => artist = value; }
+        public string Genre { get => genre; set => genre = value; }
 
         public Cancion(string name, string album, string artist, string genre)
         {
