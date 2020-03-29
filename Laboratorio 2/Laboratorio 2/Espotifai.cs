@@ -8,7 +8,8 @@ namespace Laboratorio_2
 {
     public class Espotifai
     {
-        public List<Cancion> list = new List<Cancion>(); 
+        public List<Cancion> list = new List<Cancion>();
+        public List<Playlist> playlist = new List<Playlist>();
 
         public Espotifai()
         { }
@@ -157,5 +158,45 @@ namespace Laboratorio_2
                 return songs;
             }
         }
+
+         public bool GenerarPlayList(string criterio, string valorCriterio, string nombrePlaylist)
+        {
+            List<Cancion> pl = CancionesPorCriterio(criterio, valorCriterio);
+            Playlist PL = new Playlist(nombrePlaylist, pl);
+            
+            foreach (Playlist p in playlist)
+            {
+                if (nombrePlaylist == p.NamePL)
+                    {
+                        Console.WriteLine("This name is already used");
+                        return false;
+                    }
+                else 
+                {
+                    continue;
+                }
+                
+            }
+            if (pl.Count == 0)
+            {
+                Console.WriteLine("We find no matches");
+                return false;
+            }
+            else
+            {
+                playlist.Add(PL);
+                return true;
+            }
+
+        }
+
+       public void VerMisPlaylists()
+        {
+            foreach (Playlist j in playlist)
+            {
+                j.VerPlaylist();
+            }
+        }
+
     }
 }
