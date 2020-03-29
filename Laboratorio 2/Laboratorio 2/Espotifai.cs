@@ -39,5 +39,123 @@ namespace Laboratorio_2
                 c1.Informacion();
             }
         }
+        public void VerCanciones(List<Cancion> l)
+        {
+            foreach (Cancion c1 in l)
+            {
+                c1.Informacion();
+            }
+        }
+
+        public List<Cancion> CancionesPorCriterio(string criterio,string valor)
+        {
+            List<Cancion> songs = new List<Cancion>(); 
+
+            if (criterio == "name")
+            {
+                foreach (Cancion s in list)
+                {
+                    if (valor == s.Name)
+                    {
+                        songs.Add(s);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                int cant = songs.Count;
+
+                if (cant == 0)
+                {
+                    Console.WriteLine("We find no matches");
+                    return songs;
+                }
+                else
+                {
+                    return songs;
+                }
+            }
+             else if (criterio == "album")
+            {
+                foreach (Cancion s in list)
+                {
+                    if (valor == s.Album)
+                    {
+                        songs.Add(s);
+                    }
+                    else 
+                    {
+                        continue;
+                    }
+                }
+                int cant = songs.Count;
+
+                if (cant == 0)
+                {
+                    Console.WriteLine("We find no matches");
+                    return songs;
+                }
+                else 
+                {
+                    return songs;
+                }
+            }
+             else if (criterio == "artist")
+            {
+                foreach (Cancion s in list)
+                {
+                    if (valor == s.Artist)
+                    {
+                        songs.Add(s);
+                    }
+                    else 
+                    {
+                        continue;
+                    }
+                }
+                int cant = songs.Count;
+
+                if (cant == 0)
+                {
+                    Console.WriteLine("We find no matches");
+                    return songs;
+                }
+                else 
+                {
+                    return songs;
+                }
+            }
+             else if (criterio == "genre")
+            {
+                foreach (Cancion s in list)
+                {
+                    if (valor == s.Genre)
+                    {
+                        songs.Add(s);
+                    }
+                    else 
+                    {
+                        continue;
+                    }
+                }
+                int cant = songs.Count;
+
+                if (cant == 0)
+                {
+                    Console.WriteLine("We find no matches");
+                    return songs;
+                }
+                else 
+                {
+                    return songs;
+                }
+            }
+             else
+            {
+                Console.WriteLine("Please enter a valid answer");
+                return songs;
+            }
+        }
     }
 }

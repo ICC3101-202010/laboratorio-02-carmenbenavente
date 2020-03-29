@@ -16,7 +16,7 @@ namespace Laboratorio_2
 
             Console.WriteLine("Welcome to Espotifai");
             string menu;
-            Console.WriteLine("Select an option: 1.See all songs 2. Add a song 3. Close");
+            Console.WriteLine("Select an option: 1.See all songs 2. Add a song 3. See songs by criteria 4. Close");
             menu = Console.ReadLine();
 
             var cancion0 = new Cancion("Hell Or High Water", "Runaway", "Passenger","Indie Folk");
@@ -35,6 +35,12 @@ namespace Laboratorio_2
             {
                 lista.Add(cancion2);
             }
+            var cancion3 = new Cancion("Perfect", "Divide", "Ed Sheeran", "Indie Folk");
+            if (spoti.AgregarCancion(cancion3))
+            {
+                lista.Add(cancion3);
+            }
+
 
             if (menu == "1")
             {
@@ -59,12 +65,22 @@ namespace Laboratorio_2
             }
             else if (menu == "3")
             {
+                string cri, val;
+                Console.WriteLine("Enter a criteria: genre, artist, name or album");
+                cri = Console.ReadLine();
+                Console.WriteLine("Enter a value");
+                val = Console.ReadLine();
+                List<Cancion> Songs = spoti.CancionesPorCriterio(cri, val);
+                spoti.VerCanciones(Songs);
+            }
+            else if (menu == "4")
+            {
                 Console.WriteLine("Closing");
             }
             else
             {
                 Console.WriteLine("Please enter a valid number");
-                Console.WriteLine("Select an option: 1.See all songs 2. Add a song 3. Close");
+                Console.WriteLine("Select an option: 1.See all songs 2. Add a song 3. See songs by criteria 4. Close");
                 menu = Console.ReadLine();
                 if (menu == "1")
                 {
@@ -89,6 +105,15 @@ namespace Laboratorio_2
                 }
                 else if (menu == "3")
                 {
+                    string cri, val;
+                    Console.WriteLine("Enter a criteria: genre, artist, name or album");
+                    cri = Console.ReadLine();
+                    Console.WriteLine("Enter a value");
+                    val = Console.ReadLine();
+                    Console.WriteLine(spoti.CancionesPorCriterio(cri,val));
+                }
+                else if (menu == "4")
+                {
                     Console.WriteLine("Closing");
                 }
                 else
@@ -96,9 +121,6 @@ namespace Laboratorio_2
                     Console.WriteLine("Please enter a valid number");
                 }
             }
-
-            
-
             Console.WriteLine(lista.Count);
             Console.ReadLine();
         }
