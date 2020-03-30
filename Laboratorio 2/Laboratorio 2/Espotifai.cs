@@ -8,8 +8,11 @@ namespace Laboratorio_2
 {
     public class Espotifai
     {
-        public List<Cancion> list = new List<Cancion>();
-        public List<Playlist> playlist = new List<Playlist>();
+        private List<Cancion> list = new List<Cancion>();
+        private List<Playlist> playlist = new List<Playlist>();
+
+        public List<Playlist> Playlist { get => playlist; set => playlist = value; }
+        public List<Cancion> List { get => list; set => list = value; }
 
         public Espotifai()
         { }
@@ -18,7 +21,7 @@ namespace Laboratorio_2
         {
             {
                 bool result = true;
-                foreach (Cancion c in list)
+                foreach (Cancion c in List)
                 {
                     if ((c.Name == cancion.Name) && (c.Album == cancion.Album) && (c.Artist == cancion.Artist))
                     {
@@ -35,7 +38,7 @@ namespace Laboratorio_2
         
         public void VerCanciones()
         {
-            foreach (Cancion c1 in list)
+            foreach (Cancion c1 in List)
             {
                 c1.Informacion();
             }
@@ -54,7 +57,7 @@ namespace Laboratorio_2
 
             if (criterio == "name")
             {
-                foreach (Cancion s in list)
+                foreach (Cancion s in List)
                 {
                     if (valor == s.Name)
                     {
@@ -79,7 +82,7 @@ namespace Laboratorio_2
             }
              else if (criterio == "album")
             {
-                foreach (Cancion s in list)
+                foreach (Cancion s in List)
                 {
                     if (valor == s.Album)
                     {
@@ -104,7 +107,7 @@ namespace Laboratorio_2
             }
              else if (criterio == "artist")
             {
-                foreach (Cancion s in list)
+                foreach (Cancion s in List)
                 {
                     if (valor == s.Artist)
                     {
@@ -129,7 +132,7 @@ namespace Laboratorio_2
             }
              else if (criterio == "genre")
             {
-                foreach (Cancion s in list)
+                foreach (Cancion s in List)
                 {
                     if (valor == s.Genre)
                     {
@@ -164,9 +167,9 @@ namespace Laboratorio_2
             List<Cancion> pl = CancionesPorCriterio(criterio, valorCriterio);
             Playlist PL = new Playlist(nombrePlaylist, pl);
             
-            foreach (Playlist p in playlist)
+            foreach (Playlist p in Playlist)
             {
-                if (nombrePlaylist == p.NamePL)
+                if (nombrePlaylist == p.NamePL1)
                     {
                         Console.WriteLine("This name is already used");
                         return false;
@@ -184,7 +187,7 @@ namespace Laboratorio_2
             }
             else
             {
-                playlist.Add(PL);
+                Playlist.Add(PL);
                 return true;
             }
 
@@ -192,7 +195,7 @@ namespace Laboratorio_2
 
        public void VerMisPlaylists()
         {
-            foreach (Playlist j in playlist)
+            foreach (Playlist j in Playlist)
             {
                 j.VerPlaylist();
             }

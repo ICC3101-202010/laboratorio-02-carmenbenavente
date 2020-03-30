@@ -8,19 +8,23 @@ namespace Laboratorio_2
 {
     public class Playlist
     {
-        public string NamePL;
-        public List<Cancion> Plist = new List<Cancion>();
+        private string NamePL;
+        private List<Cancion> Plist = new List<Cancion>();
 
         public Playlist(string namePL, List<Cancion> plist)
         {
-            this.NamePL = namePL;
-            this.Plist = plist;
+            this.NamePL1 = namePL;
+            this.Plist1 = plist;
         }
+
+        public string NamePL1 { get => NamePL; set => NamePL = value; }
+        public List<Cancion> Plist1 { get => Plist; set => Plist = value; }
+
         public void VerPlaylist()
         {
-            Console.WriteLine(this.NamePL);
+            Console.WriteLine(this.NamePL1);
 
-            foreach (Cancion c2 in Plist)
+            foreach (Cancion c2 in Plist1)
             {
                 c2.Informacion();
             }

@@ -11,29 +11,29 @@ namespace Laboratorio_2
         static void Main(string[] args)
         {
            
-            var spoti = new Espotifai();
-            var lista = spoti.list;
+            Espotifai spoti = new Espotifai();
+            List<Cancion> lista = spoti.List;
 
-            Console.WriteLine("Welcome to Espotifai");
+            Console.WriteLine("Welcome to Espotifai \n");
             string menu;
 
-            var cancion0 = new Cancion("Hell Or High Water", "Runaway", "Passenger","Indie Folk");
+            Cancion cancion0 = new Cancion("Hell Or High Water", "Runaway", "Passenger","Indie Folk"); 
                
             if (spoti.AgregarCancion(cancion0))
             {
                 lista.Add(cancion0);
             }
-            var cancion1 = new Cancion("Hell Or High Water", "Runaway", "Passenger", "Indie Folk");
+            Cancion cancion1 = new Cancion("Hell Or High Water", "Runaway", "Passenger", "Indie Folk");
             if (spoti.AgregarCancion(cancion1))
             {
                 lista.Add(cancion1);
             }
-            var cancion2 = new Cancion("Perfect Symphony", "Divide", "Ed Sheeran", "Indie Folk");
+            Cancion cancion2 = new Cancion("Perfect Symphony", "Divide", "Ed Sheeran", "Indie Folk");
             if (spoti.AgregarCancion(cancion2))
             {
                 lista.Add(cancion2);
             }
-            var cancion3 = new Cancion("Perfect", "Divide", "Ed Sheeran", "Indie Folk");
+            Cancion cancion3 = new Cancion("Perfect", "Divide", "Ed Sheeran", "Indie Folk");
             if (spoti.AgregarCancion(cancion3))
             {
                 lista.Add(cancion3);
@@ -42,7 +42,7 @@ namespace Laboratorio_2
             int n = 1;
             while (n == 1)
             {
-                Console.WriteLine("Select an option: 1.See all songs 2. Add a song 3. See songs by criteria 4.Create a Playlist 5. See all my playlist 9. Close");
+                Console.WriteLine("Select an option: \n 1.See all songs \n 2. Add a song  \n 3. See songs by criteria \n 4.Create a Playlist \n 5. See all my playlist \n 9. Close");
                 menu = Console.ReadLine();
                 if (menu == "1")
                 {
@@ -60,7 +60,7 @@ namespace Laboratorio_2
                     artist = Console.ReadLine();
                     Console.WriteLine("Enter genre of the song");
                     genre = Console.ReadLine();
-                    var cancion = new Cancion(name, album, artist, genre);
+                    Cancion cancion = new Cancion(name, album, artist, genre);
                     if (spoti.AgregarCancion(cancion))
                     {
                         lista.Add(cancion);
@@ -111,7 +111,6 @@ namespace Laboratorio_2
                 }
 
             }
-            Console.WriteLine(lista.Count);
             Console.ReadLine();
         }
     }
